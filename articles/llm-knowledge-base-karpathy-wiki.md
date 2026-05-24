@@ -1,5 +1,5 @@
 ---
-title: "社内の知見をAIが漏らさず拾う唯一の方法 ― KarpathyのLLM Wikiを実践して分かったこと"
+title: "社内の知見をAIが漏らさず拾う唯一の設計思想 ― KarpathyのLLM Wikiを実践して分かったこと"
 emoji: "📚"
 type: "tech"
 topics: ["LLM", "RAG", "ChatGPT", "AI", "ナレッジベース"]
