@@ -6,6 +6,8 @@ topics: ["LLM", "RAG", "ChatGPT", "AI", "ナレッジベース"]
 published: false
 ---
 
+健適文化という会社をやっています。社内ドキュメントが散らかって検索できない、AIに聞いてもまともな答えが返ってこない、そういう課題に対して、会社のナレッジベースをゼロから構築するお手伝いをしています。この記事はその過程で得た知見をまとめたものです。
+
 ## 先に結論
 
 社内ドキュメントをベクトルDBに突っ込んでRAGを組んだのに精度が出ない、という問題の原因は「入れ方」にあります。生のドキュメントをそのまま渡すのではなく、LLMが消化できる粒度まで段階的に加工してから渡す。この設計思想はUI設計のprogressive disclosureと同じ構造で、Karpathyの提唱するLLM WikiもPineconeのNexusも、突き詰めるとここに収束します。
@@ -186,3 +188,7 @@ https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
 https://www.pinecone.io/blog/knowledge-infrastructure-for-agents/
 - Pinecone「Better Models Won't Save Your Agent」
 https://www.pinecone.io/blog/introducing-nexus-knowledge-engine/
+
+---
+
+この記事で書いたナレッジベースの構築、自社でやりたいけど手が回らないという方へ。健適文化では、散らかったGoogle DriveやNotionを整理して、AIが使える形のナレッジベースに仕立てる仕事をしています。ご相談はXのDMからどうぞ。
