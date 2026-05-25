@@ -213,4 +213,4 @@ https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agent
 
 ---
 
-この記事で書いたナレッジベースの構築、自社でやりたいけど手が回らないという方へ。[健適文化](https://kenteki.org)では、散らかったGoogle DriveやNotionを整理して、AIが使える形のナレッジベースに仕立てる仕事をしています。ご相談はXのDMからどうぞ。
+この記事で書いたナレッジベースの構築、自社でやりたいけど手が回らないという方へ。[健適文化](https://kenteki.org)では、散らかったGoogle DriveやNotionを整理して、AIが使える形のナレッジベースに仕立てる仕事をしています。ご相談は[𝕏](https://x.com/nori_handa)のDMもしくは[HP](http://kenteki.org/)のフォームからお待ちしております。
