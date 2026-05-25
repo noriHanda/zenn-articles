@@ -3,7 +3,7 @@ title: "社内の知見をAIが漏らさず拾う唯一の設計思想 ― Karpa
 emoji: "📚"
 type: "tech"
 topics: ["LLM", "RAG", "ChatGPT", "AI", "ナレッジベース"]
-published: false
+published: true
 ---
 
 [健適文化](https://kenteki.org)という会社をやっています。社内ドキュメントが散らかって検索できない、AIに聞いてもまともな答えが返ってこない、そういう課題に対して、会社のナレッジベースをゼロから構築するお手伝いをしています。この記事はその過程で得た知見をまとめたものです。
