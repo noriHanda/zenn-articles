@@ -1,7 +1,7 @@
 ---
-title: "「人がコードを読まない」時代は本当に来るのか？ ── Anthropic・Stripeの開発体制から考える"
+title: "「人がコードを読まない」時代は本当に来るのか？"
 emoji: "🤖"
-type: "tech"
+type: "idea"
 topics: ["AI", "コードレビュー", "エージェント", "開発体制", "ハーネスエンジニアリング"]
 published: true
 ---
