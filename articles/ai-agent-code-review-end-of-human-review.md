@@ -22,11 +22,11 @@ AIが書いたコードを人間が読まなくていいなら、コードレビ
 
 ## Anthropicで起きたこと──人間がコードを読み切れない
 
-Anthropicは自社開発にClaude Codeを全面的に使っています。エンジニア1人あたりのコード出力量は前年比で2倍に増えました。マージされるコードのうちAIが書いた割合は平均で約50%、チームによっては90%に達しています。
+Anthropicは自社開発にClaude Codeを全面的に使っています。エンジニア1人あたりのコード出力量は前年比で200%増、つまり3倍に増えました。マージされるコードのうちAIが書いた割合は、行数ベースで約50%とされていますが、測定方法によって幅があり、Claude Codeリードを務めるBoris Cherny氏は「実質100%」とも発言しています。
 
 人間が読むべきコードの量が爆発的に増えた一方で、実際に読まれているコードはごくわずかでした。中身のあるレビューコメントが付くPRは全体のわずか16%。大量のAI生成コードが、誰にも読まれないままマージされていたわけです。
 
-この状況を受けてAnthropicは2026年3月9日、Claude Codeにマルチエージェント型の[Code Review機能](https://www.anthropic.com/news/claude-code-plugins)をリリースしました。PRが開かれると、複数のAIレビューエージェントが自動的にディスパッチされ、並行して検査を行います。各エージェントはロジックエラー、境界条件、API誤用、認証の欠陥など、それぞれ異なるクラスの問題を狙って動き、最終的にサマリーレビューとインラインコメントを投稿します（[DevOps.com](https://devops.com/anthropic-code-review-dispatches-agent-teams-to-catch-the-bugs-that-skim-reads-miss/)、[InfoQ](https://www.infoq.com/news/2026/04/claude-code-review/)）。
+この状況を受けてAnthropicは2026年3月9日、Claude Codeにマルチエージェント型の[Code Review機能](https://claude.com/blog/code-review)をリリースしました。PRが開かれると、複数のAIレビューエージェントが自動的にディスパッチされ、並行して検査を行います。各エージェントはロジックエラー、境界条件、API誤用、認証の欠陥など、それぞれ異なるクラスの問題を狙って動き、最終的にサマリーレビューとインラインコメントを投稿します（[DevOps.com](https://devops.com/anthropic-code-review-dispatches-agent-teams-to-catch-the-bugs-that-skim-reads-miss/)、[InfoQ](https://www.infoq.com/news/2026/04/claude-code-review/)）。
 
 導入後の数字は明確でした。中身のあるレビューコメントが付くPRの割合は16%から54%に上がり、1,000行を超える大規模PRでの問題発見率は84%（平均7.5件の指摘）、エンジニアが誤検知と判断した割合は1%未満でした（[VentureBeat](https://venturebeat.com/technology/anthropic-rolls-out-code-review-for-claude-code-as-it-sues-over-pentagon)）。
 
@@ -74,13 +74,13 @@ Stripeはもう一歩進んでいます。マイグレーション、依存更�
 
 人間がコードを読まなくても品質が保たれるようにするには、「読んで確認する」以外の品質保証の仕組みが要ります。そこで注目されているのがハーネスエンジニアリングです。
 
-この言葉を最初に使ったのは、HashiCorp共同創業者でTerraformやGhosttyの作者でもあるMitchell Hashimotoでした。2026年2月5日のブログ記事[「My AI Adoption Journey」](https://mitchellh.com/writing/my-ai-adoption-journey)で、彼はAIエージェントと一緒に開発するなかで確立した方法論として「Engineer the Harness」というステップを紹介しています。エージェントがミスをするたびに、そのミスが構造的に再発しないよう環境側を直していく。その積み重ねがハーネスエンジニアリングです。彼の公式はシンプルで、Agent = Model + Harness。この記事が出てから数週間でOpenAIやAnthropicも関連するエンジニアリング記事を出し、一気に広まりました。
+この言葉を最初に使ったのは、HashiCorp共同創業者でTerraformやGhosttyの作者でもあるMitchell Hashimotoでした。2026年2月5日のブログ記事[「My AI Adoption Journey」](https://mitchellh.com/writing/my-ai-adoption-journey)で、彼はAIエージェントと一緒に開発するなかで確立した方法論として「Engineer the Harness」というステップを紹介しています。エージェントがミスをするたびに、そのミスが構造的に再発しないよう環境側を直していく。その積み重ねがハーネスエンジニアリングです。この記事が出てから数週間でOpenAIやAnthropicも関連するエンジニアリング記事を出し、一気に広まりました。この潮流はやがて「Agent = Model + Harness」という公式に集約されていきます。
 
 ハーネスは馬具のことです。どんなに足の速い馬でも、手綱がなければ走る方向を制御できません。AIエージェントの出力品質も、モデルの性能よりもそれを動かす環境の設計に左右されます。
 
 具体的にはこういう要素が含まれます。大きなタスクをAIが確実にこなせる粒度に分割すること。必要な情報だけをエージェントに渡すこと。テスト実行、型チェック、リンターによる出力の自動検証。エージェントが判断に迷ったら人間に戻すエスカレーションパス。あるエージェントが実装し、別のエージェントがレビューするWriter/Reviewerパターン。
 
-OpenAIのエンジニアリングチームが「人間はコードを1行も書かない」という制約で5ヶ月間プロダクトを開発した実験があります。結果は100万行のコードと1,500件のPR。開発時間は手作業の約10分の1だったそうです。
+OpenAIのエンジニアリングチームが「人間はコードを1行も書かない」という制約で5ヶ月間プロダクトを開発した[実験](https://openai.com/index/harness-engineering/)があります。3〜7名のエンジニア体制で約100万行のコードと1,500件のPRが生まれ、1人あたり1日3.5PRというペースでした。OpenAI自身は「エンジニアリング速度を桁違いに上げた」と表現しています。
 
 ハーネスが十分に成熟すれば、人間がコードを1行ずつ読んで確認するという行為の必要性は確かに下がります。
 
