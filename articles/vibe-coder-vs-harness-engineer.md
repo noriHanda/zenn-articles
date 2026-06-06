@@ -3,7 +3,7 @@ title: "バイブコーダーとハーネスエンジニアって一緒じゃな
 emoji: "🎢"
 type: "idea"
 topics: ["AI", "ContextEngineering", "ハーネスエンジニアリング", "開発体制", "生産性"]
-published: false
+published: true
 ---
 
 [健適文化](https://kenteki.org)という会社をやっています。AIエージェントを開発プロセスに組み込むための環境構築──ハーネスの設計、CLAUDE.mdの整備、テスト自動化の導入──を企業向けにお手伝いしています。
